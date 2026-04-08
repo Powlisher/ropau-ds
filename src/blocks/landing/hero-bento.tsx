@@ -91,13 +91,13 @@ export default function HeroBento() {
           >
             <motion.div
               whileHover={{ y: -2 }}
-              transition={{ type: "spring", stiffness: 400, damping: 25 }}
+              transition={{ type: "spring" as const, stiffness: 400, damping: 25 }}
             >
               <Button size="lg">Explore features</Button>
             </motion.div>
             <motion.div
               whileHover={{ y: -2 }}
-              transition={{ type: "spring", stiffness: 400, damping: 25 }}
+              transition={{ type: "spring" as const, stiffness: 400, damping: 25 }}
             >
               <Button variant="outline" size="lg">
                 View pricing
@@ -115,7 +115,7 @@ export default function HeroBento() {
               key={cell.title}
               variants={itemVariants}
               whileHover={{ y: -3 }}
-              transition={{ type: "spring", stiffness: 400, damping: 25 }}
+              transition={{ type: "spring" as const, stiffness: 400, damping: 25 }}
               className={cell.span}
             >
               <Card

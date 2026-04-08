@@ -78,7 +78,7 @@ function AIConversation({
             initial={{ opacity: 0, scale: 0.8, y: 8 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 8 }}
-            transition={{ type: "spring", stiffness: 400, damping: 25 }}
+            transition={{ type: "spring" as const, stiffness: 400, damping: 25 }}
           >
             <Button
               variant="outline"
