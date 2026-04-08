@@ -40,21 +40,21 @@ const premiumShadow =
 const apiKeys = [
   {
     name: "Production API",
-    key: "sk_live_4f7a...x9k2",
+    key: "rpk_live_4f7a...x9k2",
     created: "Jan 14, 2026",
     lastUsed: "3 hours ago",
     active: true,
   },
   {
     name: "Staging Environment",
-    key: "sk_test_b2m8...q3w7",
+    key: "rpk_test_b2m8...q3w7",
     created: "Mar 02, 2026",
     lastUsed: "Yesterday",
     active: true,
   },
   {
     name: "CI/CD Pipeline",
-    key: "sk_live_9d1c...h5j8",
+    key: "rpk_live_9d1c...h5j8",
     created: "Nov 28, 2025",
     lastUsed: "12 days ago",
     active: false,
