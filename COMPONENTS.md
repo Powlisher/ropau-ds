@@ -100,12 +100,75 @@
 | TeamSwitcher | Team/workspace selector dropdown | `@/blocks/sidebar/team-switcher` |
 | VersionSwitcher | Version selector in sidebar | `@/blocks/sidebar/version-switcher` |
 
+### Landing (`blocks/landing/`)
+
+| Block | Description | Import |
+|-------|-------------|--------|
+| HeroSplit | Split layout: headline + CTAs left, visual right | `@/blocks/landing/hero-split` |
+| HeroCenteredGradient | Centered with radial gradient, gradient text, stats | `@/blocks/landing/hero-centered-gradient` |
+| HeroSocialProof | Avatar stack, rating, bold headline, 2 CTAs | `@/blocks/landing/hero-social-proof` |
+| HeroVideoModal | Video placeholder with play button, badge, headline | `@/blocks/landing/hero-video-modal` |
+| HeroWaitlist | Email signup, counter, feature cards | `@/blocks/landing/hero-waitlist` |
+| HeroCodePreview | Split: features left, terminal code block right | `@/blocks/landing/hero-code-preview` |
+| HeroBento | Bento grid layout with headline and CTAs | `@/blocks/landing/hero-bento` |
+| HeroPricing | 2-col pricing comparison (Free vs Pro) | `@/blocks/landing/hero-pricing` |
+| HeroTestimonial | Split: headline left, testimonial card right | `@/blocks/landing/hero-testimonial` |
+| HeroSteps | 3-step horizontal process with numbered circles | `@/blocks/landing/hero-steps` |
+| FeaturesGrid | 3-column card grid with icons | `@/blocks/landing/features-grid` |
+| FeaturesAlternating | Alternating image/text rows | `@/blocks/landing/features-alternating` |
+| PricingThreeTier | Starter/Pro/Enterprise pricing cards | `@/blocks/landing/pricing-three-tier` |
+| TestimonialsGrid | 3-column testimonial quote cards | `@/blocks/landing/testimonials-grid` |
+| FaqSection | Accordion-based FAQ section | `@/blocks/landing/faq-section` |
+| CtaBanner | Full-width primary-bg CTA banner | `@/blocks/landing/cta-banner` |
+| FooterColumns | 4-column footer with links and copyright | `@/blocks/landing/footer-columns` |
+| LogoCloud | Trusted-by logo placeholder grid | `@/blocks/landing/logo-cloud` |
+| StatsSection | 4 large metrics in a row | `@/blocks/landing/stats-section` |
+
+### Settings (`blocks/settings/`)
+
+| Block | Description | Import |
+|-------|-------------|--------|
+| ProfileSettings | Avatar, name, email, bio form | `@/blocks/settings/profile-settings` |
+| TeamSettings | Team members table with roles and actions | `@/blocks/settings/team-settings` |
+
+### Forms (`blocks/forms/`)
+
+| Block | Description | Import |
+|-------|-------------|--------|
+| ContactForm | Name, email, subject, message form | `@/blocks/forms/contact-form` |
+
 ### Pages (shadcn block routes)
 
 | Page | Block ID | Route |
 |------|----------|-------|
 | Dashboard | dashboard-01 | `/dashboard` |
 | Login | login-01 | `/login` |
+
+## AI Components (`components/ai/`)
+
+### Core Chat
+
+| Component | Description | Import |
+|-----------|-------------|--------|
+| AIMessage | Chat bubble with role-based alignment, attachments, streaming | `@/components/ai/ai-message` |
+| AIConversation | Auto-scrolling chat container with scroll-to-bottom | `@/components/ai/ai-conversation` |
+| AIPromptInput | Auto-resizing textarea with send button and attachments | `@/components/ai/ai-prompt-input` |
+| AILoader | Custom SVG spinner with 8 graduated-opacity spokes | `@/components/ai/ai-loader` |
+| AISuggestion | Horizontal scrollable suggestion pills | `@/components/ai/ai-suggestion` |
+| AIActions | Copy/regenerate/like/dislike icon button toolbar | `@/components/ai/ai-actions` |
+
+### AI Response
+
+| Component | Description | Import |
+|-----------|-------------|--------|
+| AIReasoning | Collapsible thinking block with duration and shimmer | `@/components/ai/ai-reasoning` |
+| AITool | Function call display with status and JSON I/O | `@/components/ai/ai-tool` |
+| AISources | Expandable citation list with external links | `@/components/ai/ai-sources` |
+| AICodeBlock | Dark-themed code display with copy and language label | `@/components/ai/ai-code-block` |
+| AIAgent | Agent config card with model, instructions, tools | `@/components/ai/ai-agent` |
+| AIConfirmation | Human-in-the-loop approve/reject dialog | `@/components/ai/ai-confirmation` |
+| AIArtifact | Expandable panel for generated code/docs/images | `@/components/ai/ai-artifact` |
+| AITask | Task list with completion states and file refs | `@/components/ai/ai-task` |
 
 ## Hooks
 
