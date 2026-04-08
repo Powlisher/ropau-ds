@@ -4,7 +4,9 @@ import { useParams } from "next/navigation"
 import { motion } from "framer-motion"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
-import { blockComponents, type BlockSubcategory } from "@/lib/component-registry"
+import dynamic from "next/dynamic"
+import { useMemo } from "react"
+import { blockComponents } from "@/lib/component-registry"
 import { DarkModeToggle } from "@/components/showcase/dark-mode-toggle"
 
 const containerVariants = {
@@ -21,9 +23,26 @@ const itemVariants = {
   },
 }
 
+function BlockRenderer({ subcategory, slug }: { subcategory: string; slug: string }) {
+  const DynamicBlock = useMemo(
+    () =>
+      dynamic(() => import(`@/blocks/${subcategory}/${slug}`), {
+        loading: () => (
+          <div className="flex items-center justify-center py-16">
+            <div className="size-5 animate-spin rounded-full border-2 border-muted-foreground/20 border-t-primary" />
+          </div>
+        ),
+        ssr: false,
+      }),
+    [subcategory, slug]
+  )
+
+  return <DynamicBlock />
+}
+
 export default function BlockPreviewPage() {
   const params = useParams()
-  const subcategory = params.subcategory as BlockSubcategory
+  const subcategory = params.subcategory as string
   const slug = params.component as string
 
   const entry = blockComponents.find(
@@ -71,10 +90,6 @@ export default function BlockPreviewPage() {
           </Link>
           <span className="text-muted-foreground/40">/</span>
           <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-            blocks
-          </span>
-          <span className="text-muted-foreground/40">/</span>
-          <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
             {subcategory}
           </span>
           <span className="text-muted-foreground/40">/</span>
@@ -108,16 +123,8 @@ export default function BlockPreviewPage() {
                 "0 1px 2px rgba(20,20,15,0.04), 0 2px 4px rgba(20,20,15,0.04)",
             }}
           >
-            <div className="flex flex-col items-center justify-center py-16 gap-3">
-              <div className="size-14 rounded-xl bg-muted/50 flex items-center justify-center ring-1 ring-foreground/5">
-                <span className="text-xl font-semibold text-muted-foreground/40">
-                  {entry.name.charAt(0)}
-                </span>
-              </div>
-              <p className="text-sm font-medium">{entry.name}</p>
-              <p className="text-xs text-muted-foreground max-w-sm text-center">
-                This block is a self-contained page section. Import and use it directly in your layout.
-              </p>
+            <div className="flex flex-col items-center justify-center p-8">
+              <BlockRenderer subcategory={subcategory} slug={slug} />
             </div>
           </div>
         </motion.div>

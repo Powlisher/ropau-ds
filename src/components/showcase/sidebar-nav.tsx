@@ -30,7 +30,6 @@ import {
   blockComponents,
   blockSubcategories,
   type RegistryEntry,
-  type BlockSubcategory,
 } from "@/lib/component-registry"
 
 function groupBlocksBySubcategory(blocks: RegistryEntry[]) {
@@ -207,7 +206,7 @@ function BlockSubNav({
   pathname,
 }: {
   label: string
-  subcategory: BlockSubcategory
+  subcategory: string
   items: RegistryEntry[]
   pathname: string
 }) {

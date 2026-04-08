@@ -6,6 +6,7 @@ import { Layers, Sparkles, LayoutGrid, ArrowRight } from "lucide-react"
 import {
   uiComponents,
   aiComponents,
+  blockComponents,
   blockSubcategories,
 } from "@/lib/component-registry"
 import { DarkModeToggle } from "@/components/showcase/dark-mode-toggle"
@@ -48,9 +49,12 @@ const categories = [
     description: "Production-ready page sections — landing heroes, auth forms, dashboards, settings panels.",
     href: "/showcase/block/landing/hero-split",
     icon: LayoutGrid,
-    count: blockSubcategories.reduce((sum, s) => sum + s.count, 0),
+    count: blockComponents.length,
     accent: "bg-foreground/5 text-foreground ring-foreground/8",
-    items: blockSubcategories.map((s) => `${s.label} (${s.count})`),
+    items: blockSubcategories.map((s) => {
+      const count = blockComponents.filter((b) => b.subcategory === s.slug).length
+      return `${s.label} (${count})`
+    }),
   },
 ]
 
@@ -141,7 +145,7 @@ export default function ShowcasePage() {
         >
           {[
             { label: "Total Components", value: `${uiComponents.length + 14}` },
-            { label: "Block Sections", value: `${blockSubcategories.reduce((s, b) => s + b.count, 0)}` },
+            { label: "Block Sections", value: `${blockComponents.length}` },
             { label: "Categories", value: `${blockSubcategories.length}` },
             { label: "Color System", value: "oklch" },
           ].map((stat) => (
